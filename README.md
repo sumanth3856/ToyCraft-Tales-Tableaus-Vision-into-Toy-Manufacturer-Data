@@ -59,5 +59,5 @@ To run the web application locally, follow these steps:
 ---
 
 <div align="center">
-  <i>Developed for Data Engineering & Analytics Internship Evaluation.</i>
+  <i>Developed for Data Analytics Internship Evaluation.</i>
 </div>
