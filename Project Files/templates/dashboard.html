@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard | ToyCraft Tales{% endblock %}
+{% block hero_title %}Dashboard{% endblock %}
+{% block hero_subtitle %}Explore the Toy Manufacturing Data{% endblock %}
+
+{% block content %}
+<div class="tableau-container" id="dashboard-wrapper">
+    <!-- Inner div that perfectly holds the fixed size dashboard -->
+    <div id="tableau-scaler" style="width: 1400px; height: 1827px; transform-origin: top left;">
+        <div class='tableauPlaceholder' id='viz1771855104771' style='position: relative; width: 100%; height: 100%;'>
+            <noscript>
+                <a href='#'><img alt='ToyCraft Tales Tableau&#39;s Vision' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;ToyCraftsTales&#47;ToyCraftTales&#47;1_rss.png' style='border: none' /></a>
+            </noscript>
+            <object class='tableauViz' style='display:none;'>
+                <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+                <param name='embed_code_version' value='3' /> 
+                <param name='site_root' value='' />
+                <param name='name' value='ToyCraftsTales&#47;ToyCraftTales' />
+                <param name='tabs' value='no' />
+                <param name='toolbar' value='yes' />
+                <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;To&#47;ToyCraftsTales&#47;ToyCraftTales&#47;1.png' /> 
+                <param name='animate_transition' value='yes' />
+                <param name='display_static_image' value='yes' />
+                <param name='display_spinner' value='yes' />
+                <param name='display_overlay' value='yes' />
+                <param name='display_count' value='yes' />
+                <param name='language' value='en-GB' />
+            </object>
+        </div>
+    </div>
+    
+    <script type='text/javascript'>
+        var divElement = document.getElementById('viz1771855104771');
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        
+        // Let Tableau fill the scaler exactly
+        vizElement.style.width = '100%';
+        vizElement.style.height = '100%';
+        
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+
+        function resizeDashboard() {
+            var wrapper = document.getElementById('dashboard-wrapper');
+            var scaler = document.getElementById('tableau-scaler');
+            var containerWidth = wrapper.offsetWidth;
+            
+            // Calculate proportional scale factor relative to dashboard's fixed 1400px width
+            var scale = containerWidth / 1400;
+            
+            // Apply scale transformation
+            scaler.style.transform = 'scale(' + scale + ')';
+            
+            // Collapse the wrapper height to tightly fit the proportionately scaled inner content
+            wrapper.style.height = Math.floor(1827 * scale) + 'px';
+        }
+
+        window.addEventListener('resize', resizeDashboard);
+        // Call immediately and also shortly after inject
+        resizeDashboard();
+        setTimeout(resizeDashboard, 200);
+        setTimeout(resizeDashboard, 1000);
+    </script>
+</div>
+{% endblock %}

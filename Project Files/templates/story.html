@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}Story | ToyCraft Tales{% endblock %}
+{% block hero_title %}The ToyCraft Story{% endblock %}
+{% block hero_subtitle %}A Data-Driven Narrative of US Toy Manufacturing{% endblock %}
+
+{% block content %}
+<div class="tableau-container" id="dashboard-wrapper">
+    <!-- Inner div that perfectly holds the fixed size dashboard -->
+    <div id="tableau-scaler" style="width: 1400px; height: 950px; transform-origin: top left;">
+        <iframe 
+            src="https://public.tableau.com/views/ToyCraftsTalesStory/Story1?:embed=yes&:showVizHome=no&:tabs=no" 
+            style="width: 100%; height: 100%; border: none;"
+            scrolling="no"
+            allowfullscreen>
+        </iframe>
+    </div>
+    
+    <script type='text/javascript'>
+        function resizeDashboard() {
+            var wrapper = document.getElementById('dashboard-wrapper');
+            var scaler = document.getElementById('tableau-scaler');
+            var containerWidth = wrapper.offsetWidth;
+            
+            // Calculate proportional scale factor relative to assumed 1400px width
+            var scale = containerWidth / 1400;
+            
+            // Apply scale transformation
+            scaler.style.transform = 'scale(' + scale + ')';
+            
+            // Collapse the wrapper height to tightly fit the proportionately scaled inner content
+            wrapper.style.height = Math.floor(950 * scale) + 'px';
+        }
+
+        window.addEventListener('resize', resizeDashboard);
+        // Call immediately and also shortly after inject
+        resizeDashboard();
+        setTimeout(resizeDashboard, 200);
+        setTimeout(resizeDashboard, 1000);
+    </script>
+</div>
+{% endblock %}
