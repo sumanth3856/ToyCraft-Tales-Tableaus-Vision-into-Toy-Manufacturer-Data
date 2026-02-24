@@ -2,7 +2,7 @@
   <h1>🧸 ToyCraft Tales</h1>
   <p><strong>Tableau's Vision into Toy Manufacturer Data</strong></p>
   
-  [![Live Demo](https://img.shields.io/badge/Vercel-View%20Live%20Demo-black?style=for-the-badge&logo=vercel)](https://toycrafttales.vercel.app)
+  [![Live Demo](https://img.shields.io/badge/View%20Live%20Demo-blue?style=for-the-badge)](https://toycrafttales.vercel.app)
 </div>
 
 ---
